@@ -98,7 +98,41 @@
 ![mermaid-diagram-2025-03-24-024231](https://github.com/user-attachments/assets/713df47e-8113-4ebd-a28e-7f72124bb4f8)
 
 
-## 7. Resource: 
+## 7. Considerations : 
+...In real life ride sharing system, fare is calculated based on several factros such as : 
+* Distance
+* Peak hours
+* Weather condition
+
+...However, in this simple ride sharing system, we have not used any external API to find the distance between pickup point and distnation. We simply Assume that rides should only be serveed to any point between A-Z. Where the distance between each character represents 1km, and the price per each km is x.
+
+  E.g. pickupPoint = 'A', destination = 'V'
+  To find the fare for this ride we will find the distance between A-V.
+
+      const pickupIndex = pickupPoint.charCodeAt(0) - 'A'.charCodeAt(0);
+      const dropOffIndex = destination.charCodeAt(0) - 'A'.charCodeAt(0);
+      const distance = Math.abs(pickupIndex-dropOffIndex);
+      let fare = this.baseFare + (distance * this.pricePerStep);
+      
+      // Apply multipliers
+      if (this.isPeakHour()) {
+        fare *= this.peakMultiplier;
+      }
+      
+      if (this.isBadWeather()) {
+        fare *= this.weatherSurcharge;
+      }
+      
+      // Ensure minimum fare
+      fare = Math.max(fare, this.minFare);
+      
+      // Round to 2 decimal places
+      const roundedFare = Math.round(fare * 100) / 100;
+
+* Finding the nearest driver follows the very same approach.
+
+
+## 8. Resource: 
 * Pohl, K., & Rupp, C. (2015). Requirements Engineering Fundamentals: A Study Guide for the Certified Professional for Requirements Engineering Exam, Foundation Level, IREB compliant, 2ⁿᵈ ed. USA: Rocky Nook Inc.
 * Fowler, M., & Scott, K. (2003). UML distilled: A brief guide to the standard object modelling language. Addison Wesley Professional.
 Uber System Design by TechPrep [https://youtu.be/DGtalg5efCw?si=biy-yr_1TxuIg_f2]
