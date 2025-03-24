@@ -136,4 +136,5 @@
 * Pohl, K., & Rupp, C. (2015). Requirements Engineering Fundamentals: A Study Guide for the Certified Professional for Requirements Engineering Exam, Foundation Level, IREB compliant, 2ⁿᵈ ed. USA: Rocky Nook Inc.
 * Fowler, M., & Scott, K. (2003). UML distilled: A brief guide to the standard object modelling language. Addison Wesley Professional.
 Uber System Design by TechPrep [https://youtu.be/DGtalg5efCw?si=biy-yr_1TxuIg_f2]
+* OOP Principles [https://www.interviewbit.com/blog/principles-of-oops/]
 
